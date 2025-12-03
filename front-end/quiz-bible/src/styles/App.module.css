@@ -44,7 +44,7 @@ body {
 }
 
 .ContentLeft h1 span {
-  font-size: clamp(2.5rem, 3.75vw, 4.5rem ); 
+  font-size: clamp(3.25rem, 3.75vw, 4.5rem ); 
   color: #4A90E2;
 }
 
@@ -54,7 +54,6 @@ body {
 
   .quizImg {
   width: 100%;
-  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -231,9 +230,15 @@ body {
   .SubContainer{
     max-width: 90%;
     flex-direction: column;
-    border: 1px solid red;
     gap: 20px;
   }
+
+
+  .quizImg{
+    height: 65%;
+  }
+
+  
 
   .ContentLeft{
       width: 90%;
@@ -243,9 +248,7 @@ body {
   .SubContainerSecond{
     width: 90%;
     gap: 1.25rem;
-    text-align: center;
-    border: 1px solid red;
-    
+    text-align: center;    
     flex-direction: column;
   }
   .ContentLeftSecond{
@@ -274,9 +277,7 @@ body {
   .ContentLeft h1  {
     font-size: 1.5rem; 
   }
-  .ContentRight {
-    font-size: .5rem;
-  }
+
 
   .BtnTest{
     width: 100%;
