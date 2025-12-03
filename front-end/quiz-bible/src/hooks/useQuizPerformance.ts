@@ -45,7 +45,7 @@ export function useQuizPerformance(results: UserQuizResult[], timeElapsedMs: num
             currentStreak = 0;
         }
     }
-    maxStreak = Math.max(maxStreak, currentStreak); // Garante que o último streak seja contado
+    maxStreak = Math.max(maxStreak, currentStreak); // último streak vai ser contado
 
     return {
         totalQuestions,
