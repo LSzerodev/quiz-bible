@@ -1,0 +1,136 @@
+/* Variáveis para consistência */
+:root {
+  --color-primary: #4a90e2; /* Azul para o botão principal */
+  --color-text-dark: #2c3e50;
+  --color-text-light: #7f8c8d;
+  --color-background-light: #ffffff;
+  --color-border: #ecf0f1;
+  --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius-default: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* 1. Overlay (Fundo Escuro) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Fundo ligeiramente mais sutil */
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(5px); /* Efeito blur mais forte para focar no modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Z-index alto */
+  animation: fadeIn var(--transition-speed) ease;
+}
+
+/* 2. Container Principal do Modal */
+.modal {
+  background: var(--color-background-light);
+  padding: 30px; /* Mais padding para mais 'ar' */
+  border-radius: var(--border-radius-default);
+  width: 90%;
+  max-width: 500px; /* Reduzi o max-width para um modal de login típico */
+  box-shadow: var(--shadow-default);
+  
+  /* Layout interno para o conteúdo */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os elementos */
+
+  position: relative;
+  animation: scaleIn var(--transition-speed) ease;
+}
+
+/* 3. Botão de Fechar */
+.iconClose {
+  font-size: 24px; /* Tamanho mais padrão */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.iconClose:hover {
+  transform: rotate(90deg); /* Efeito sutil de rotação */
+  color: var(--color-text-dark);
+}
+
+/* 4. Estilização do Conteúdo (Minimalista e Legível) */
+.modal h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-align: center; /* Centralizado para o título principal */
+}
+
+.modal p {
+  margin: 0;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* 5. Botão Principal de Login (Google) */
+.btnLogin {
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  border-radius: 8px; /* Borda menos arredondada */
+  border: none;
+  background-color: var(--color-primary); /* Cor primária */
+  color: var(--color-background-light); /* Texto branco */
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btnLogin:hover {
+  background-color: #3b7ad0; /* Cor um pouco mais escura no hover */
+  transform: translateY(-2px); /* Efeito 3D sutil */
+}
+
+.btnLogin span:first-child {
+  font-size: 20px; /* Tamanho do ícone */
+}
+
+/* 6. Adição de mais conteúdo (Exemplo: Link Secundário/Separador) */
+.separator {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 14px;
+}
+
+.secondaryLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+.secondaryLink:hover {
+  text-decoration: underline;
+}
+
+/* 7. Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
