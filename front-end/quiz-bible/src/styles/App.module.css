@@ -226,6 +226,10 @@ body {
 }
 
 @media ( max-width: 1080px ){
+
+  .ContentLeft h1 {
+    font-size: 3.25rem; 
+  }
   
   .SubContainer{
     max-width: 90%;
@@ -233,12 +237,9 @@ body {
     gap: 20px;
   }
 
-
   .quizImg{
-    height: 65%;
+    height: 100%;
   }
-
-  
 
   .ContentLeft{
       width: 90%;
@@ -271,13 +272,19 @@ body {
 }
 
 @media (max-width: 480px){
-  .ContentLeft h1 span {
-    font-size: 1.5rem; 
-  }
-  .ContentLeft h1  {
-    font-size: 1.5rem; 
+
+  .ContentLeft h1 {
+    font-size: 2.375rem; 
   }
 
+  .ContentLeft h1 span {
+    font-size: 2.375rem; 
+  }
+
+  .quizImg{
+    width: 100%;
+    height: 100%;
+  }
 
   .BtnTest{
     width: 100%;
