@@ -1,0 +1,55 @@
+.Container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+}
+
+
+
+.SubContainer{
+    width: 100%;
+    max-width: 582px;
+    background-color: #F6FAFF;
+    border-radius: 20px;
+    padding: 44px 44px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.Quiz{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #2E2E2E;
+
+}
+
+.dificuldades{
+    margin-top: 47px;
+}
+
+.dificuldades p{
+    margin-bottom: 8px;
+}
+
+.Alternativas{
+    margin-top: 32px;
+}
+
+.Alternativas p{
+    margin-bottom: 8px;
+}
+
+.ContentHeader{
+    text-align: center;
+}
+
+.ContainerBloco, .ContainerNumbers{
+    display: flex;
+    gap: 24px;
+}
