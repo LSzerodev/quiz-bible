@@ -26,7 +26,7 @@ interface QuizResponse {
 
 export async function createQuizQuestion(data: QuizRequestData): Promise<QuizResponse> {
 
-    const res = await fetch('http://localhost:3333/quiz', {
+    const res = await fetch('https://quiz-student-bible.up.railway.app/quiz', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
