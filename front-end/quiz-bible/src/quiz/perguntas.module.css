@@ -1,0 +1,251 @@
+/* Container principal: centraliza e ocupa a tela inteira */
+.quizContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh; 
+    background-color: #f0f4f83b; 
+    padding: 20px 0; 
+}
+
+/* Área de conteúdo que limita a largura do quiz */
+.quizContentWrapper {
+    max-width: 900px; 
+    width: 90%;
+    padding: 0 20px; 
+}
+
+/* O Cartão do Quiz (área principal) */
+.quizCard {
+    background-color: white; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px; 
+}
+
+/* Área da Pergunta */
+.quizQuestionArea {
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: 600;
+    color: #333; 
+    line-height: 1.4;
+    font-size: 1.5rem;
+}
+
+/* Container das alternativas */
+.quizOptions {
+    margin-bottom: 20px;
+}
+
+/* Componente de Pergunta/Alternativas individuais */
+.questionItem {
+    background-color: #e9ecef; 
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: #495057;
+    border: 2px solid transparent;
+}
+
+.questionItem:hover {
+    background-color: #dee2e6; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transform: translateX(4px);
+}
+
+/* ✅ Estado: Selecionada (antes de confirmar) */
+.questionItem.selected {
+    background-color: #2E2E2E;
+    border-color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #F3C873;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* ✅ Estado: Resposta Correta */
+.questionItem.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+    font-weight: 600;
+    cursor: default;
+    animation: correctPulse 0.6s ease;
+}
+
+/* ❌ Estado: Resposta Incorreta */
+.questionItem.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+    font-weight: 600;
+    cursor: default;
+    animation: incorrectShake 0.5s ease;
+}
+
+/* Layout interno da alternativa */
+.alternativaContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ícones de check/erro */
+.icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.correct .icon {
+    color: #28a745;
+}
+
+.incorrect .icon {
+    color: #dc3545;
+}
+
+/* ✅ Feedback de Resposta */
+.feedback {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.feedbackSuccess {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+}
+
+.feedbackError {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+}
+
+.feedbackIcon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feedback p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.feedback strong {
+    color: #28a745;
+}
+
+/* ✅ Botões de Ação */
+.actionButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.btnConfirmar,
+.btnProxima {
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnConfirmar {
+    background-color: #3498db;
+    color: white;
+}
+
+.btnConfirmar:hover:not(:disabled) {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btnConfirmar:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btnProxima {
+    background-color: #28a745;
+    color: white;
+}
+
+.btnProxima:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* ✅ Animações */
+@keyframes correctPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes incorrectShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✅ Responsividade */
+@media (max-width: 768px) {
+    .quizCard {
+        padding: 20px;
+    }
+
+    .quizQuestionArea h4 {
+        font-size: 1.2rem;
+    }
+
+    .questionItem {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .btnConfirmar,
+    .btnProxima {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+}
