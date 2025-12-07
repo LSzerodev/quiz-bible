@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BtnQuiz } from "../components/buttonQuiz/btnquiz";
 import { Bloco } from "../components/dificuldadesBloco/bloco";
 import { InputQuiz } from "../components/inputQuiz/input";
@@ -9,9 +9,8 @@ import { createQuizQuestion } from "../services/quizService";
 type DificuldadeType = "facil" | "medio" | "dificil";
 
 export default function Quiz() {
-  const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const [inputTema, setInputTema] = useState<string>('');
   const [dificuldade, setDificuldade] = useState<DificuldadeType | null>(null);
   const [numAlternativas, setNumAlternativas] = useState<number | null>(null);
@@ -46,7 +45,6 @@ export default function Quiz() {
         quantidade_alternativas: numAlternativas
       };
 
-
       const { id: newQuizId, quizJson } = await createQuizQuestion(quizData);
 
       navigate(`/quiz/${newQuizId}`, { state: { quizData: quizJson } });
@@ -70,13 +68,21 @@ export default function Quiz() {
 
   console.log({ inputTema, dificuldade, numAlternativas });
 
+  if (loading) {
+    return (
+      <div className={styles.Container}>
+        <span className={styles.Loader}></span>
+      </div>
+    );
+  }
+  
   return (
     <>
       <div className={styles.Container}>
         <div className={styles.SubContainer}>
           <div className={styles.Quiz}>
             <div className={styles.ContentHeader}>
-              <h3>Quiz Biblico {id}</h3>
+              <h3>Quiz Biblico</h3>
               <InputQuiz 
                 value={inputTema}
                 onChange={(e) => setInputTema(e.target.value)}
@@ -90,11 +96,11 @@ export default function Quiz() {
                 {blocos.map((item, index) => (
                   <Bloco 
                     key={index}
-                     
                     isSelected={dificuldade === item.value}
+                    onClick={() => handleSelectDificuldade(item.value)}
                   >
                     <span>{item.emoji}</span>
-                    <p onClick={() => handleSelectDificuldade(item.value)}>{item.label}</p>
+                    <p>{item.label}</p>
                   </Bloco>
                 ))}
               </div>

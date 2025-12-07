@@ -166,6 +166,7 @@ body {
   height: auto;
 }
 
+
 .ContainerSecond{
   width: 100%;
   height: 90vh;
@@ -271,14 +272,14 @@ body {
 
 }
 
-@media (max-width: 480px){
+@media (max-width: 570px){
 
   .ContentLeft h1 {
-    font-size: 2.375rem; 
+    font-size: 32px; 
   }
 
   .ContentLeft h1 span {
-    font-size: 2.375rem; 
+    font-size: 32px; 
   }
 
   .quizImg{
@@ -289,6 +290,4 @@ body {
   .BtnTest{
     width: 100%;
   }
-  
-
 }

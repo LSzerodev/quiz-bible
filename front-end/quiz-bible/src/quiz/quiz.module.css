@@ -10,8 +10,6 @@
 
 }
 
-
-
 .SubContainer{
     width: 100%;
     max-width: 582px;
@@ -20,6 +18,41 @@
     padding: 44px 44px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
+
+
+.Loader {
+  width: 20vw;
+  max-width: 150px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+}
+
+.Loader::before,
+.Loader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.Loader::before {
+  border: 5px solid rgba(255, 255, 255, 0.737);
+}
+
+.Loader::after {
+  border: 5px solid transparent;
+  border-top-color: #ffffff;
+  border-right-color: #1d85df;
+  animation: rotate 0.8s linear infinite;
+}
+
+/* ANIMAÇÃO */
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
 
 .Quiz{
     width: 100%;
