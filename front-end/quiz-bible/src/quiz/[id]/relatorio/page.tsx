@@ -176,7 +176,7 @@ export default function QuizReport() {
                         >
                             {showReview ? "Ocultar" : "Mostrar"}
                         </button>
-                    </div>
+                    </div> 
 
                     {showReview && (
                         <div className={styles.QuestionList}>

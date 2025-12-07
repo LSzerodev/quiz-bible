@@ -404,7 +404,6 @@
 }
 
 .CorrectInGroup{
-    /* border: 1px solid red; */
     margin-top: 16px;
     display: flex;
     justify-content: space-between;
@@ -509,6 +508,11 @@
     .StatsGrid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
+    }
+
+    .CorrectInGroup{
+        flex-direction: column;
+        gap: 16px;
     }
     
     .ScoreDisplay {
